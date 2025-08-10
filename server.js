@@ -9,7 +9,8 @@ const cors = require('cors');
 app.use(cors({
      origin: "http://localhost:5173", // or ["http://localhost:3000", "https://yourfrontend.com"]
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type, Authorization"
+  allowedHeaders: "Content-Type, Authorization",
+  credentials: true
 }));
 
 require('dotenv').config();
