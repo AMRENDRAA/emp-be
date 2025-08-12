@@ -7,7 +7,11 @@ const app=express();
 const cors = require('cors');
 
 app.use(cors({
-     origin: "http://localhost:5173", // or ["http://localhost:3000", "https://yourfrontend.com"]
+  origin: [
+    "http://localhost:5173", 
+    "http://localhost:3000",
+    "https://empfe-4aouns8zk-amrendra-rajs-projects.vercel.app" // Add your Vercel URL
+  ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Content-Type, Authorization",
   credentials: true
