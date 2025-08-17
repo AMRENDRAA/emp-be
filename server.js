@@ -1,14 +1,14 @@
-const express=require('express');
-const sequelize=require('./config/db');
-const Employee= require('./models/Employee');
-const employeeRoutes=require('./routes/employeeRoutes');
-const app=express();
+const express = require('express');
+const sequelize = require('./config/db');
+const Employee = require('./models/Employee');
+const employeeRoutes = require('./routes/employeeRoutes');
+const app = express();
 
 const cors = require('cors');
 
 app.use(cors({
   origin: [
-    "http://localhost:5173", 
+    "http://localhost:5173",
     "http://localhost:3000",
     "https://empfe-4aouns8zk-amrendra-rajs-projects.vercel.app" // Add your Vercel URL
   ],
@@ -29,19 +29,19 @@ app.use((req, res, next) => {
 //SYNC WITH DB
 
 
-sequelize.sync().then(()=>{
-    console.log('DB SYNCED ');
-}).catch((err)=>{
- console.error('ERROR IN SYNC',err);
+sequelize.sync().then(() => {
+  console.log('DB SYNCED ');
+}).catch((err) => {
+  console.error('ERROR IN SYNC', err);
 
 });
 
-app.get('/',(req,res)=>{
-    res.send('API RUNNING');
+app.get('/', (req, res) => {
+  res.send('API RUNNING');
 
 });
 
-app.use('/api/employee',employeeRoutes);
+app.use('/api/employee', employeeRoutes);
 
 
 
@@ -51,10 +51,10 @@ app.use('/api/employee',employeeRoutes);
 
 
 
-const PORT=process.env.PORT ||8000;
+const PORT = process.env.PORT || 8000;
 
 
-app.listen(PORT,()=>{
-    console.log(`server running on the port ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`server running on the port ${PORT}`);
 
 })
