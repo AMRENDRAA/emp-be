@@ -4,6 +4,8 @@ const Employee = require('./models/Employee');
 const employeeRoutes = require('./routes/employeeRoutes');
 const app = express();
 
+const authRoutes = require('./routes/authRoutes'); // Add this line
+
 const cors = require('cors');
 
 app.use(cors({
@@ -20,6 +22,10 @@ app.use(cors({
 require('dotenv').config();
 app.use(express.json());
 
+// ADDING COOKIE PARSER FOR THE REFRESH TOKENS
+
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 
 app.use((req, res, next) => {
@@ -42,6 +48,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/employee', employeeRoutes);
+
+app.use('/auth', authRoutes); // Add this line
 
 
 

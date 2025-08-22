@@ -20,7 +20,7 @@ const RefreshToken = sequelize.define('RefreshToken', {
     },
     revokedAt: {
         type: DataTypes.DATE,
-        allowNulltrue
+        allowNull: true
     },
     userAgent: {
         type: DataTypes.STRING(255),
@@ -34,7 +34,7 @@ const RefreshToken = sequelize.define('RefreshToken', {
 
 }, {
     timestamps: true,
-    tableName: 'refresh_tokens '
+    tableName: 'refresh_tokens'
 }
 
 )
